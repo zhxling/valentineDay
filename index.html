@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>七夕情人节快乐</title>
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+  <div id="content">
+    <ul class="content_wrap">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <div class="btn">点击切换页面</div>
+  </div>
+</body>
+<script src="lib/jquery.min.js"></script>
+<script src="js/swipe.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    var swipe=Swipe($("#content"));
+
+    $(".btn").click(function(){
+      swipe.scrollTo(5000);
+    })
+  })
+
+</script>
+</html>
