@@ -33,12 +33,19 @@
      var container = $("#content");
         var swipe = Swipe(container);
         var boy = BoyWalk();
+
+        // 页面滚动到指定的位置
+        function scrollTo(time, proportionX) {
+            var distX = container.width() * proportionX;
+            swipe.scrollTo(distX, time);
+        }
     
         // 开始
         $(".btn").click(function() {    
             // 开始第一次走路
             boy.walkTo(2000, 0.2)
                 .then(function() {
+                    scrollTo(50000, 1)
                     //第一次走路完成
                     boy.setColor('red')
                 })
