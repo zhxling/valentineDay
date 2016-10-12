@@ -39,10 +39,14 @@
     })
 
     //点击切换页面
-    swipe.scrollTo=function(speed){
+    swipe.scrollTo=function(slideWidth,speed){
       //执行动画移动
+      // element.css({
+      //   transform:'translate3d(-'+ (slides.length-1)*width +'px,0px,0px)',
+      //   transition:'all '+ speed + 'ms linear 0s'
+      // });
       element.css({
-        transform:'translate3d(-'+ (slides.length-1)*width +'px,0px,0px)',
+        transform:'translate3d(-'+ slideWidth +'px,0px,0px)',
         transition:'all '+ speed + 'ms linear 0s'
       });
 

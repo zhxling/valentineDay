@@ -5,18 +5,40 @@
   <title>七夕情人节快乐</title>
   <link rel="stylesheet" type="text/css" href="css/index.css">
   <link rel="stylesheet" type="text/css" href="css/pageA.css">
+  <link rel="stylesheet" type="text/css" href="css/pageB.css">
 </head>
 <body>
   <div id="content">
     <ul class="content_wrap">
       <li>
+        <!-- 主背景 -->
         <div class="a_all_background">
           <div class="a_top_background"></div>
           <div class="a_middle_background"></div>
           <div class="a_bottom_background"></div>
         </div>
+
+        <!-- 云 -->
+        <div id="cloud">
+          <div class="cloud_small"></div>
+          <div class="cloud_big"></div>
+        </div>
+
+        <!-- 太阳 -->
+        <div id="sun"></div>
       </li>
-      <li>2</li>
+      <li>
+        <!-- 主背景 -->
+        <div class="b_background"></div>
+
+        <!-- 商店 -->
+        <div class="shop">
+          <div class="door">
+            <div class="door_left"></div>
+            <div class="door_right"></div>
+          </div>
+        </div>
+      </li>
       <li>3</li>
     </ul>
     <div id="boy" class="charector"></div>
@@ -37,15 +59,24 @@
         // 页面滚动到指定的位置
         function scrollTo(time, proportionX) {
             var distX = container.width() * proportionX;
-            swipe.scrollTo(distX, time);
+            swipe.scrollTo(time, distX);
         }
+
+        //临时调整页面
+        swipe.scrollTo(container.width(),0);
     
         // 开始
-        $(".btn").click(function() {    
+        $(".btn").click(function() { 
+            // 让云动起来
+            $(".cloud_small").addClass('smallCloudAnim');
+            $(".cloud_big").addClass('bigCloudAnim');
+
+            //让太阳动起来
+            $("#sun").addClass('sunAnim');
             // 开始第一次走路
             boy.walkTo(2000, 0.2)
                 .then(function() {
-                    scrollTo(50000, 1)
+                    scrollTo(10000, 1)
                     //第一次走路完成
                     boy.setColor('red')
                 })

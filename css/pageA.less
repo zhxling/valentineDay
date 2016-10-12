@@ -21,3 +21,88 @@
     background: url(../images/background/a_background_botton.png)
   }
 }
+
+/* 云 */
+#cloud{
+  .cloud_small{
+    position: absolute;
+    left: -2%;
+    top: 12%;
+    width: 181px;
+    height: 109px;
+    background: url(../images/cloud1.png) no-repeat;
+  }
+
+  .cloud_big{
+    position: absolute;
+    right: -2%;
+    top: 6%;
+    width: 301px;
+    height: 140px;
+    background: url(../images/cloud2.png) no-repeat;
+  }
+}
+
+.smallCloudAnim{
+  animation:cloud_small_animation 30s infinite; 
+  -webkit-animation:cloud_small_animation 30s infinite;
+  -moz-animation:cloud_small_animation 30s infinite;
+}
+
+.bigCloudAnim{
+  animation:cloud_big_animation 60s infinite; 
+  -webkit-animation:cloud_big_animation 60s infinite;
+  -moz-animation:cloud_big_animation 60s infinite;
+}
+
+@keyframes cloud_small_animation{
+  0% {
+    transform:translateX(0px) translateY(0px);
+    -webkit-transform:translateX(0px) translateY(0px);
+    -moz-transform:translateX(0px) translateY(0px);
+  }
+  100%{
+    transform:translateX(-2000px) translateY(100px);
+    -webkit-transform:translateX(-2000px) translateY(100px);
+    -moz-transform:translateX(-2000px) translateY(100px);
+  }
+}
+
+@keyframes cloud_big_animation{
+  0% {
+    right: -2%;
+  }
+  100%{
+    right: 100%;
+  }
+}
+
+/* 太阳 */
+#sun{
+  position: absolute;
+  left: 50%;
+  top:1%;
+  width: 201px;
+  height: 210px;
+  margin-left: -100px;
+  background: url(../images/sun.png) no-repeat;
+}
+
+.sunAnim{
+  animation:sun_animation 20s infinite; 
+  -webkit-animation:sun_animation 20s infinite;
+  -moz-animation:sun_animation 20s infinite;
+}
+
+@keyframes sun_animation{
+  0% {
+    transform:translateX(0px) translateY(0px);
+    -webkit-transform:translateX(0px) translateY(0px);
+    -moz-transform:translateX(0px) translateY(0px);
+  }
+  100%{
+    transform:translateX(-2000px) translateY(500px);
+    -webkit-transform:translateX(-2000px) translateY(500px);
+    -moz-transform:translateX(-2000px) translateY(500px);
+  }
+}
