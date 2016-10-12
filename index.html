@@ -63,7 +63,7 @@
         }
 
         //临时调整页面
-        swipe.scrollTo(container.width(),0);
+        // swipe.scrollTo(container.width(),0);
     
         // 开始
         $(".btn").click(function() { 
@@ -76,7 +76,7 @@
             // 开始第一次走路
             boy.walkTo(2000, 0.2)
                 .then(function() {
-                    scrollTo(10000, 1)
+                    scrollTo(10000, 2)
                     //第一次走路完成
                     boy.setColor('red')
                 })
