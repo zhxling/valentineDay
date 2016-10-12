@@ -59,41 +59,54 @@
         // 页面滚动到指定的位置
         function scrollTo(time, proportionX) {
             var distX = container.width() * proportionX;
-            swipe.scrollTo(time, distX);
+            swipe.scrollTo(distX, time);
         }
 
         //临时调整页面
-        // swipe.scrollTo(container.width(),0);
+        swipe.scrollTo(container.width(),0);
+
+        // 开门
+        function doorAction(left,right,time){
+          var doorLeft=$(".door_left");
+          var doorRight=$(".door_right");
+
+          var dfd=$.deferred;
+          var count=2;
+
+          doorLeft.transition({
+              left:left
+          },time,complete);
+        }
     
         // 开始
-        $(".btn").click(function() { 
-            // 让云动起来
-            $(".cloud_small").addClass('smallCloudAnim');
-            $(".cloud_big").addClass('bigCloudAnim');
+        // $(".btn").click(function() { 
+        //     // 让云动起来
+        //     $(".cloud_small").addClass('smallCloudAnim');
+        //     $(".cloud_big").addClass('bigCloudAnim');
 
-            //让太阳动起来
-            $("#sun").addClass('sunAnim');
-            // 开始第一次走路
-            boy.walkTo(2000, 0.2)
-                .then(function() {
-                    scrollTo(10000, 2)
-                    //第一次走路完成
-                    boy.setColor('red')
-                })
-                .then(function() {
-                    //第二次走
-                    return boy.walkTo(2000, 0.4)
-                }).then(function() {
-                    //第二次走路完成
-                    boy.setColor('yellow')
-                }).then(function() {
-                    //第三次走路
-                    return boy.walkTo(2000, 0.6)
-                }).then(function() {
-                    //第三次走路完成
-                    boy.setColor('blue')
-                });  
-        });
+        //     //让太阳动起来
+        //     $("#sun").addClass('sunAnim');
+        //     // 开始第一次走路
+        //     boy.walkTo(2000, 0.2)
+        //         .then(function() {
+        //             // scrollTo(10000, 2)
+        //             //第一次走路完成
+        //             boy.setColor('red')
+        //         })
+        //         .then(function() {
+        //             //第二次走
+        //             return boy.walkTo(2000, 0.4)
+        //         }).then(function() {
+        //             //第二次走路完成
+        //             boy.setColor('yellow')
+        //         }).then(function() {
+        //             //第三次走路
+        //             return boy.walkTo(2000, 0.6)
+        //         }).then(function() {
+        //             //第三次走路完成
+        //             boy.setColor('blue')
+        //         });  
+        // });
 
   })
 
