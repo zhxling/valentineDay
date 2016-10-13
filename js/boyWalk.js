@@ -86,6 +86,68 @@ function BoyWalk(){
     return (direction=='x' ? clientWidth :clientHeight) * proportion;
   }
 
+  // 男生走到门前的距离
+  var door=$(".door");
+  offsetLeft=door[0].offsetLeft
+
+  // 门动画
+  function doorAction(left,right,time){
+    var doorLeft=$(".door_left");
+    var doorRight=$(".door_right");
+
+    var dfd=$.Deferred();
+    var count=2;
+
+    function complete(){
+      if(count==1){
+        dfd.resolve();
+        return ;
+      }
+
+      count--;
+    }
+
+    doorLeft.transition({
+        left:left
+    },time,complete);
+
+    doorRight.transition({
+        left:right
+    },time,complete);
+
+    return dfd;
+  }
+
+  function openDoor(time){
+    return doorAction('-50%','100%',time);
+  }
+
+  function closeDoor(time){
+    return doorAction('0%','50%',time);
+  }
+
+  // 灯动画
+  var lamp={
+    elem:$(".b_background_preload"),
+    lampRight:function(){
+      this.elem.addClass('lamp-bright');
+    },
+    lampDark:function(){
+       this.elem.removeClass('lamp-bright');
+    }
+  }
+
+  $(".btn").click(function(){
+    openDoor(3000)
+      .then(function(){
+        lamp.lampRight();
+        return closeDoor(3000);
+      })
+      .then(function(){
+        lamp.lampDark();
+      });
+  })
+
   return{
     //开始走路
     walkTo:function(time,proportionX,proportionY){
